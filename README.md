@@ -45,8 +45,8 @@ project-root/
 First, clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/ahmetybesiroglu/masterworks_edgar_scraper.git
+cd masterworks_edgar_scraper
 ```
 
 ### 2. Set Up a Virtual Environment
