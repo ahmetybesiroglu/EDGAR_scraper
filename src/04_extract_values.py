@@ -1,5 +1,3 @@
-# 04_extract_values.ipynb
-
 import os
 import pandas as pd
 import json
@@ -38,25 +36,6 @@ def extract_value(df, line_name, column_idx, occurrence=0, entity_name='', form_
         print(f"Error extracting value for '{line_name}' in Entity '{entity_name}', Form '{form_type}': {e}")
         return 0
 
-# Function to extract the value embedded within the text in the same cell
-def extract_embedded_value(df, line_name, after_sequence, entity_name='', form_type=''):
-    try:
-        matching_rows = [row for i, row in df.iterrows() if line_name in row.to_string()]
-        print(f"Entity: {entity_name}, Form: {form_type}, Line: '{line_name}'")
-        print(f"Matching rows for embedded value '{line_name}': {matching_rows}")
-        if matching_rows:
-            text = matching_rows[-1][0]
-            if line_name in text:
-                parts = text.split(after_sequence)
-                if len(parts) > 1:
-                    embedded_value = parts[1].split()[0].strip()
-                    print(f"Extracted embedded value for '{line_name}': {embedded_value}")
-                    return embedded_value
-        return 0
-    except Exception as e:
-        print(f"Error extracting embedded value for '{line_name}' in Entity '{entity_name}', Form '{form_type}': {e}")
-        return 0
-
 # Initialize an empty dictionary to store the extracted data in a pivot format
 data_dict = {}
 
@@ -83,9 +62,6 @@ for root, dirs, files in os.walk(data_dir):
                         column_idx = item.get("column_idx", 0)
                         occurrence = item.get("occurrence", 0)
                         value = extract_value(df, line_name, column_idx, occurrence, entity_name, form_type)
-                    elif extract_method == "extract_embedded_value":
-                        after_sequence = item.get("after_sequence", "")
-                        value = extract_embedded_value(df, line_name, after_sequence, entity_name, form_type)
 
                     if column_name not in data_dict:
                         data_dict[column_name] = {}

@@ -1,7 +1,7 @@
 
 # EDGAR Data Scraper
 
-This project is designed to scrape and process data from the SEC's EDGAR database. The primary focus is on extracting financial information from Masterworks entities' filings.
+This project is designed to scrape and process data from the SEC's EDGAR database, focusing on extracting financial information from Masterworks entities' filings. It includes scripts to automate the process from data scraping to final data extraction, using a JSON configuration file to specify the exact financial lines of interest.
 
 ## Project Structure
 
@@ -23,20 +23,97 @@ project-root/
 └── requirements.txt
 ```
 
+### Directory Descriptions
+
+- **data/**: This folder contains all the scraped and processed data files, such as the list of entities, recent filings, and extracted financial data.
+- **src/**: Contains the Python scripts that perform the main tasks of the project, from scraping to data extraction.
+- **config.json**: A configuration file that defines which specific lines from the financial statements should be extracted.
+- **README.md**: Documentation for the project.
+- **requirements.txt**: Lists the Python dependencies required to run the project.
+- **.gitignore**: Specifies files and directories that Git should ignore, such as data files and virtual environment directories.
+
 ## Scripts
 
-- **01_scrape_edgar.py**: Scrapes the EDGAR database for Masterworks entities.
-- **02_fetch_recent_filings.py**: Fetches the most recent filings for the scraped entities.
-- **03_parse_filings.py**: Parses the filings to extract relevant data.
-- **04_extract_values.py**: Extracts specific financial values from the filings and structures the data for analysis.
+### 1. **01_scrape_edgar.py**: 
+
+This script scrapes the EDGAR database to identify and gather the CIK (Central Index Key) and company names of Masterworks entities. The output is saved as a CSV file in the `data/` directory.
+
+**How it works:**
+- Uses Selenium to automate the web browser and navigate through the EDGAR search results.
+- Extracts company names and their corresponding CIKs.
+- Filters results to include only those entities that match the "Masterworks" criteria.
+- Saves the list of entities to a CSV file (`masterworks_entity_list.csv`).
+
+### 2. **02_fetch_recent_filings.py**: 
+
+This script fetches the most recent filings (1-K and 1-SA) for each Masterworks entity identified in the first step.
+
+**How it works:**
+- Reads the list of entities from `masterworks_entity_list.csv`.
+- Makes API requests to the SEC EDGAR database to fetch recent filings data for each entity.
+- Filters and identifies the most recent 1-K and 1-SA filings.
+- Saves the filing data to a CSV file (`recent_filings.csv`).
+
+### 3. **03_parse_filings.py**: 
+
+This script parses the filings identified in the previous step to extract relevant sections of financial statements, such as the Balance Sheet, Statement of Operations, and Cash Flow Statements.
+
+**How it works:**
+- Downloads the full filing text from the SEC archives.
+- Uses BeautifulSoup to parse the HTML and locate specific sections of interest.
+- Extracts tables corresponding to key financial statements.
+- Cleans and formats the extracted data, saving each table to a CSV file under `data/entities/<Entity Name>/<Form Type>/statements/`.
+
+### 4. **04_extract_values.py**: 
+
+This script extracts specific financial values from the parsed statements, based on the rules defined in `config.json`.
+
+**How it works:**
+- Reads the financial statements saved in the previous step.
+- Uses the configuration file (`config.json`) to determine which lines to extract from each statement.
+- Extracts values based on keywords and table structures specified in the configuration.
+- Compiles the extracted data into a final CSV file for analysis.
 
 ## Configuration
 
-- **config.json**: Configuration file specifying the lines to extract from financial statements.
+### **config.json**
+
+The `config.json` file is a critical component that defines exactly what data to extract from the financial statements. It allows the extraction process to be flexible and customizable.
+
+**Structure:**
+
+```json
+{
+    "Consolidated_Statement_of_Cash_Flows.csv": [
+        {
+            "line_name": "Net income",
+            "column_name": "Net income/(loss)",
+            "extract_method": "extract_value",
+            "column_idx": 3,
+            "occurrence": 0
+        },
+        ...
+    ]
+}
+```
+
+- **line_name**: The keyword or partial phrase that identifies the line item in the financial statement.
+- **column_name**: The name that will be used in the final output CSV to represent this line item.
+- **extract_method**: Specifies the method to use when extracting data (e.g., `extract_value` for direct value extraction).
+- **column_idx**: Indicates the column index within the table where the value should be extracted.
+- **occurrence**: Determines which occurrence of the line (e.g., 0 for the first occurrence) to extract if there are multiple.
+
+### Example:
+
+If you want to extract the "Net income/(loss)" from a "Consolidated Statement of Cash Flows," you would specify the corresponding `line_name` that appears in the filing, the `column_name` to label it in your output, and the column number where this value is located.
 
 ## Data
 
-- **data/**: Directory to store the scraped and processed data files.
+The `data/` directory contains all the output files generated by the scripts:
+
+- **masterworks_entity_list.csv**: List of Masterworks entities and their CIKs.
+- **recent_filings.csv**: The most recent 1-K and 1-SA filings for each entity.
+- **entities/**: Subdirectories for each entity, containing parsed financial statement tables.
 
 ## Setup Instructions
 
@@ -45,8 +122,8 @@ project-root/
 First, clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/ahmetybesiroglu/masterworks_edgar_scraper.git
-cd masterworks_edgar_scraper
+git clone https://github.com/ahmetybesiroglu/masterworks-edgar_scraper.git
+cd masterworks-edgar_scraper
 ```
 
 ### 2. Set Up a Virtual Environment

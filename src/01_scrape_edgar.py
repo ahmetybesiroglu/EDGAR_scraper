@@ -1,5 +1,3 @@
-# 01_scrape_edgar.ipynb
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,9 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 import time
 import os
-
-# Create data directory if it doesn't exist
-os.makedirs('../data', exist_ok=True)
 
 # Initialize the WebDriver
 driver = webdriver.Chrome()
@@ -64,19 +59,11 @@ df = pd.DataFrame(all_data, columns=['CIK', 'Company Name'])
 # Add a space after each comma in the 'Company Name' column
 df['Company Name'] = df['Company Name'].apply(lambda x: ', '.join([name.strip() for name in x.split(',')]))
 
-# Print the scraped data
-print(df)
-
 # Ensure CIK column is saved as text to preserve leading zeros
 df['CIK'] = df['CIK'].astype(str)
 
-print(df)
-
-# Ensure data directory exists
-os.makedirs('../data', exist_ok=True)
-
 # Save the data to a CSV file
-output_path = '../data/masterworks_entity_list.csv'
-df.to_csv(output_path, index=False)
+os.makedirs('../data', exist_ok=True)
+df.to_csv('../data/masterworks_entity_list.csv', index=False)
 
-print(f"Data scraping complete. All data has been saved to '{output_path}'.")
+print(f"Data scraping complete. All data has been saved to 'masterworks_entity_list.csv'.")
