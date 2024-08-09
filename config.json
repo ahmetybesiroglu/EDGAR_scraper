@@ -1,0 +1,202 @@
+{
+    "1-SA": {
+        "Consolidated_Statement_of_Cash_Flows.csv": [
+            {
+                "line_name": "Cash Flows from Operating Activities",
+                "column_name": "Cash Flows from Operating Activities:",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net income",
+                "column_name": "Net income/(loss)",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Share-based compensation",
+                "column_name": "Share-based compensation - administrative services fees",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Expense allocation",
+                "column_name": "Expense allocation payment expense payable to affiliate",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Gain/Purchase of Artwork",
+                "column_name": "Gain/Purchase of Artwork",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Changes in operating assets and liabilities",
+                "column_name": "Changes in operating assets and liabilities:",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Other amounts due to affiliates",
+                "column_name": "Other amounts due to affiliates",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net Cash Provided/(Used) in Operating Activities",
+                "column_name": "Net Cash Provided/(Used) in Operating Activities",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Cash Flows from Investing Activities",
+                "column_name": "Cash Flows from Investing Activities:",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Purchase of artwork",
+                "column_name": "Purchase of artwork",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Proceeds from sale of artwork",
+                "column_name": "Proceeds from sale of artwork",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net Cash Provided/(Used) in Investing Activities",
+                "column_name": "Net Cash Provided/(Used) in Investing Activities",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Cash Flows from Financing Activities",
+                "column_name": "Cash Flows from Financing Activities:",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Proceeds from issuance of membership",
+                "column_name": "Proceeds from issuance of membership interests",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net proceeds from unsettled subscriptions",
+                "column_name": "Net proceeds from unsettled subscriptions and investor subscription deposits",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Proceeds from issuance of Class A",
+                "column_name": "Proceeds from issuance of Class A ordinary shares",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Redemptions of Class A ordinary shares and Class B",
+                "column_name": "Redemptions of Class A ordinary shares and Class B ordinary shares",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Proceeds from non-interest bearing",
+                "column_name": "Proceeds from non-interest bearing advance from affiliate",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Repayment of non-interest bearing",
+                "column_name": "Repayment of non-interest bearing advance from affiliate",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net Cash Provided/(Used) in Financing Activities",
+                "column_name": "Net Cash Provided/(Used) in Financing Activities",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net Change in Cash and Cash Equivalents",
+                "column_name": "Net Change in Cash and Cash Equivalents",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Cash and Cash Equivalents, beginning of period",
+                "column_name": "Cash and Cash Equivalents, beginning of period",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Cash and Cash Equivalents, end of period",
+                "column_name": "Cash and Cash Equivalents, end of period",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Non cash investing and financing activities",
+                "column_name": "Non cash investing and financing activities:",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Conversion of membership interests to Class B",
+                "column_name": "Conversion of membership interests to Class B shares",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Issuance of Class A ordinary shares",
+                "column_name": "Issuance of Class A ordinary shares from subscriptions previously received",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Net payable to affiliate incurred",
+                "column_name": "Net payable to affiliate incurred for purchase of artwork",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            },
+            {
+                "line_name": "Satisfaction of advance from affiliate",
+                "column_name": "Satisfaction of advance from affiliate via issuance of Class A Ordinary shares",
+                "extract_method": "extract_value",
+                "column_idx": 3,
+                "occurrence": 0
+            }
+        ]
+    }
+}
