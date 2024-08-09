@@ -64,7 +64,7 @@ This command creates a virtual environment in a directory named `venv`.
 - On **Windows**:
 
     ```bash
-    venv\Scriptsctivate
+    venv\Scripts\Activate
     ```
 
 - On **macOS/Linux**:
